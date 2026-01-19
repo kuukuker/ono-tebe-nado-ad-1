@@ -1,1 +1,82 @@
-/* место для вашего кода */
+/* Общие сбросы и box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px; /* внутренний отступ для контента */
+  font-family: "Raleway", sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.5; /* интерлиньяж в относительных единицах */
+}
+
+/* Семантические элементы */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ссылки */
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+  outline: 2px outlined #545050;
+}
+
+/* Изображения */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover; /* или contain, в зависимости от задачи */
+  display: block; /* избегает лишних отступов */
+}
+
+/* Кнопки */
+button {
+  font-family: inherit;
+  font-size: 1em;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid #333;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, outline 0.3s;
+}
+button:hover,
+button:focus {
+  outline: 2px solid #545050; /* для доступности */
+  background-color: #545050;
+  color: #fff;
+}
+
+/* Исправление для псевдоэлементов (если есть) - пример */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* для чтения скринридерами */
+  border: 0;
+}
