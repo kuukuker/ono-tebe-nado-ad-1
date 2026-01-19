@@ -1,1 +1,268 @@
 /* место для вашего кода */
+/* Общие сбросы и базовые стили (уже есть в style.css) */
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Выровнять .page по центру и задать фиксированные размеры */
+.page {
+  justify-content: center; /* размещение по горизонтали, если нужно */
+  align-items: center;     /* размещение по вертикали */
+  width: 1200px; /* фиксированная ширина сайта */
+  height: 100%; /* по высоте контейнера */
+  margin: 0 auto; /* центрирование страницы */
+}
+
+/* Общий контейнер content на гриде */
+.content {
+  display: grid;
+  grid-template-areas:
+    "search search"
+    "list details";
+  width: 100%;
+  height: auto; /* можно задать фиксированную высоту, если нужно */
+  justify-self: center; /* расположить по центру */
+  align-self: end; /* прижать к низу вертикальной оси */
+  gap: 20px; /* промежутки между зонами */
+}
+
+/* Расположение элементов внутри grid */
+.content__search-form {
+  grid-area: search;
+  display: flex; /* для размещения формы элементов */
+  align-items: flex-start; /* прижать к низу по вертикальной оси */
+  gap: 10px; /* горизонтальный отступ между элементами формы */
+  width: 100%;
+}
+
+/* Установка размеров и отступов формы поиска */
+.search-form {
+  display: flex;
+  gap: 15px; /* между полями и кнопкой */
+}
+
+/* Для flex элементов внутри формы */
+.search-form__fieldset-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* Расположение search-form__checkbox-list в линию */
+.search-form__checkbox-list {
+  display: flex;
+  gap: 10px;
+}
+
+/* Скрытые радиокнопки/чекбоксы */
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Стили для чекбоксов с псевдоэлементами */
+.search-form__pseudo-checkbox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.search-form__checkbox-list input[type='checkbox']:checked + .search-form__pseudo-checkbox::after {
+  background-color: #000; /* или другой цвет, обозначающий актив */
+  /* Можно добавить внутренний квадрат или галочку по желанию */
+}
+
+/* Расположение элементов .search-form в строку */
+.search-form {
+  display: flex;
+  width: 100%;
+  justify-content: space-between; /* рапределение пропорциональное */
+  align-items: start;
+}
+
+/* Разметка внутри .content__list-container */
+.content__list-container {
+  grid-area: list;
+  max-height: 300px; /* пример фиксированного размера */
+  overflow-y: auto; /* скролл при переполнении */
+}
+
+/* Стиль видео контейнера */
+.result__video-container {
+  width: 100%;
+  height: 200px; /* фиксированная высота */
+  position: relative; /* для абсолютного позиционирования внутри */
+  margin-bottom: 20px; /* отступ снизу */
+}
+
+/* Видео внутри контейнера */
+.result__video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* заполняет без искажения */
+}
+
+/* Стили для списка карточек */
+.content__list-item {
+  display: flex;
+  align-items: center;
+  padding: 3px 0; /* по 3px слева и справа */
+  cursor: pointer;
+}
+
+/* Активная карточка */
+.content__card-link_current {
+  background-color: #f0f0f0; /* пример фона активной карточки */
+}
+
+/* Эффекты наведения и фокуса по карточкам */
+.content__list-item:hover,
+.content__list-item:focus,
+.content__list-item:active {
+  outline: none; /* сброс обводки по умолчанию */
+  text-decoration: underline; /* подчеркивание при наведении */
+}
+
+/* Заголовок карточек */
+.content__video-card-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2; /* регулируйте по макету */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Описание в видео карточке с line-clamp */
+.content__video-card-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* ограничение по строкам */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4; /* интерлиньяж */
+  max-height: calc(1.4em * 3); /* высота для 3 строк */
+}
+
+/* Кнопки */
+.button,
+.search-form__submit-button,
+.more-button {
+  border: 1px solid #ccc;
+  background-color: transparent;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: all 0.2s;
+}
+
+/* Особенности кнопки "Найти" */
+.search-form__submit-button {
+  align-self: flex-end; /* в конце контейнера */
+  width: auto;
+}
+
+/* Особенности кнопки "Показать ещё" */
+.more-button {
+  width: 100%; /* растягивается */
+}
+
+/* Состояния кнопок */
+button:hover,
+.search-form__submit-button:hover,
+.more-button:hover {
+  text-decoration: underline;
+}
+
+button:active,
+.search-form__submit-button:active,
+.more-button:active {
+  color: #555; /* пример цвета */
+}
+
+button:focus,
+.search-form__submit-button:focus,
+.more-button:focus {
+  outline: 2px dashed #000; /* контур фокуса */
+}
+
+/* Карточки */
+.content__card {
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: background-color 0.2s;
+}
+
+.content__card:hover,
+.content__card:focus,
+.content__card:active {
+  outline: none;
+  background-color: #f9f9f9;
+}
+
+.content__card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.content__card-link_current {
+  background-color: #e0e0e0; /* активная карточка — фон */
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+/* Позиционирование прелоадеров */
+.result__loader,
+.content__loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8); /* полупрозрачный фон */
+  z-index: 9999;
+}
+
+/* Внутри контейнеров, чтобы прелоадеры занимали всю площадь */
+.result__video-container > .loader,
+.content__list-container > .loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* При необходимости добавьте дополнительные стили для адаптивности и конкретных эффектов */
