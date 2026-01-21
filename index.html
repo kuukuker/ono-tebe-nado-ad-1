@@ -1,37 +1,69 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Оно тебе надо — аукцион вещей, в которые никто не верил</title>
-  <link rel="stylesheet" href="styles.css" /> <!-- подключите отдельный CSS файл -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Верстка по заданию</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<header>
-  <h1>Аукцион необычных вещей</h1>
-</header>
-
-<section class="featured">
-  <h2>Лучшие предложения</h2>
-  <div class="cards">
-    <article class="content__card">
-      <a href="#" class="content__card-link content__card-link_current" aria-current="page">
-        <img src="example.jpg" alt="Описание изображения" />
-        <h3 class="content__video-card-title">Заголовок видео</h3>
-        <p class="content__video-card-description">
-          Краткое описание содержимого карточки. Здесь можно разместить короткий текст, который не должен выходить за четыре строки.
-        </p>
-      </a>
-    </article>
-    <!-- Добавляйте больше карточек по необходимости -->
+<!-- Обложка с оверлеем -->
+<section class="cover">
+  <div class="overlay"></div>
+  <h1 class="cover__title">
+    <span class="aligned-text aligned-text_left">Оно</span>
+    <br>
+    <span class="aligned-text aligned-text_center">тебе</span>
+    <br>
+    <span class="aligned-text aligned-text_right">надо</span>
+  </h1>
+  <div class="cover__description">
+    <p class="cover__description-text">Подзаголовок или пояснение</p>
+    <button class="bet-button">Сделать ставку</button>
   </div>
 </section>
 
-<footer>
-  <p>&copy; 2024 Аукцион</p>
-</footer>
+<!-- Краткая ссылка -->
+<section class="short-link">
+  <a class="short-link__text" href="#">Краткая ссылка</a>
+</section>
+
+<!-- Контакты -->
+<section class="contacts">
+  <h2 class="contacts__title">Контакты</h2>
+  <ul class="contacts__list">
+    <li class="contacts__item">
+      <a class="contacts__link" href="tel:+70000000">+7(000)000-00-00</a>
+    </li>
+    <li class="contacts__item">
+      <a class="contacts__link" href="mailto:mail@example.com">mail@example.com</a>
+    </li>
+  </ul>
+</section>
+
+<!-- Логотип -->
+<header class="header">
+  <div class="header__logo">Логотип</div>
+  <nav class="header__menu">
+    <ul class="header__menu-list">
+      <li><a href="#">Главная</a></li>
+      <li><a href="#">О нас</a></li>
+      <li><a href="#">Контакты</a></li>
+    </ul>
+  </nav>
+  <div class="header__links">
+    <ul class="header__links-list">
+      <li><a href="#">Ссылка 1</a></li>
+      <li><a href="#">Ссылка 2</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Дополнительное оформление (например, топ) -->
+<div class="top-banner">
+  <h2>Дополнительное оформление</h2>
+</div>
 
 </body>
 </html>
