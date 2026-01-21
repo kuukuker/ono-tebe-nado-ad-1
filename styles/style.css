@@ -1,82 +1,217 @@
-/* Общие сбросы и box-sizing */
-*,
-*::before,
-*::after {
+/* Общие стили сброса и шрифтов */
+* {
   box-sizing: border-box;
-}
-
-body {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px; /* внутренний отступ для контента */
-  font-family: "Raleway", sans-serif;
-  background-color: #fff;
-  color: #333;
-  line-height: 1.5; /* интерлиньяж в относительных единицах */
-}
-
-/* Семантические элементы */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-li,
-blockquote {
   margin: 0;
   padding: 0;
 }
 
-/* Ссылки */
-a {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  outline: none;
-}
-a:hover,
-a:focus {
-  text-decoration: underline;
-  outline: 2px outlined #545050;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #222;
 }
 
-/* Изображения */
-img {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover; /* или contain, в зависимости от задачи */
-  display: block; /* избегает лишних отступов */
+/* Обложка с оверлеем */
+.cover {
+  position: relative;
+  background-image: url('https://via.placeholder.com/1920x600'); /* замените на ваш фон */
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px;
+  text-align: center;
 }
 
-/* Кнопки */
-button {
-  font-family: inherit;
-  font-size: 1em;
-  padding: 10px 20px;
+.cover__title {
+  position: relative;
+  z-index: 2;
+  font-family: 'Arial', sans-serif;
+  font-size: 48px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.aligned-text {
+  display: block;
+  font-weight: bold;
+}
+
+/* Вариации выравнивания */
+.aligned-text_left {
+  text-align: left;
+  margin-left: 20px;
+}
+.aligned-text_center {
+  text-align: center;
+}
+.aligned-text_right {
+  text-align: right;
+  margin-right: 20px;
+}
+
+/* Оверлей для затемнения */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+/* Оболочка заголовка для текста, чтобы управлять шириной */
+.cover__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cover__description {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+}
+
+.cover__description-text {
+  margin-bottom: 15px;
+  font-size: 18px;
+  word-spacing: 4px;
+}
+
+/* Кнопка ставки */
+.bet-button {
   background-color: transparent;
-  border: 2px solid #333;
+  border: 2px solid #fff;
+  padding: 12px 25px;
+  color: #fff;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, outline 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
-button:hover,
-button:focus {
-  outline: 2px solid #545050; /* для доступности */
-  background-color: #545050;
+
+.bet-button:hover {
+  background-color: #fff;
+  color: #222;
+}
+
+/* Краткая ссылка */
+.short-link {
+  margin: 40px 20px;
+  text-align: center;
+}
+
+.short-link__text {
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.short-link__text:hover {
+  color: #ddd;
+}
+
+/* Контакты */
+.contacts {
+  padding: 40px 20px;
+  background-color: #333;
+  text-align: center;
+}
+
+.contacts__title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.contacts__list {
+  list-style: none;
+  display: inline-flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.contacts__item {
+  margin: 10px 0;
+}
+
+.contacts__link {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.contacts__link:hover {
+  color: #ddd;
+}
+
+/* Логотип */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #444;
+}
+
+.header__logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header__menu {
+  /* меню по центру или справа, зависит от дизайна */
+}
+
+.header__menu-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.header__menu-list a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.header__menu-list a:hover {
+  color: #ddd;
+}
+
+.header__links {
+  /* дополнительные ссылки */
+}
+
+.header__links-list {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+/* Дополнительное оформление сверху (например, баннер) */
+.top-banner {
+  background-color: #555;
+  padding: 20px;
+  text-align: center;
   color: #fff;
 }
 
-/* Исправление для псевдоэлементов (если есть) - пример */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap; /* для чтения скринридерами */
-  border: 0;
+/* Медіа для адаптивности */
+@media(max-width: 768px) {
+  .cover__title {
+    font-size: 32px;
+  }
+  .contacts__list {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .header {
+    flex-direction: column;
+  }
+  .header__menu {
+    margin-top: 10px;
+  }
 }
