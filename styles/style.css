@@ -1,11 +1,10 @@
-/* Общие стили сброса и шрифтов */
+//* Общие стили сброса и шрифтов */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Подключение шрифтов можно делать в HTML — см. рекомендацию */
 body {
   font-family: 'Raleway', sans-serif;
   line-height: 1.5;
@@ -16,7 +15,7 @@ body {
 /* Обложка с оверлеем */
 .cover {
   position: relative;
-  background-image: url('https://via.placeholder.com/1920x600'); /* замените на ваш фон */
+  background-image: url('https://via.placeholder.com/1920x600');
   background-size: cover;
   background-position: center;
   padding: 80px 20px;
@@ -24,7 +23,6 @@ body {
 }
 
 .cover__title {
-  /* объединение стилей, дублировавшихся ранее */
   position: relative;
   z-index: 2;
   font-family: 'Raleway', sans-serif;
@@ -46,9 +44,11 @@ body {
   text-align: left;
   margin-left: 20px;
 }
+
 .aligned-text_center {
   text-align: center;
 }
+
 .aligned-text_right {
   text-align: right;
   margin-right: 20px;
@@ -60,13 +60,6 @@ body {
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1;
-}
-
-/* Оболочка заголовка для текста, чтобы управлять шириной */
-.cover__title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .cover__description {
@@ -151,7 +144,7 @@ body {
   color: #ddd;
 }
 
-/* Логотип */
+/* Шапка */
 .header {
   display: flex;
   justify-content: space-between;
@@ -160,15 +153,13 @@ body {
   background-color: #444;
 }
 
-/* Логотип обернут в ссылку (изменения осуществите в HTML) */
 .header__logo {
   font-size: 24px;
   font-weight: bold;
 }
 
-/* Меню */
 .header__menu {
-  /* есть описание, зависит от дизайна */
+  /* оформление меню зависит от дизайна */
 }
 
 .header__menu-list {
@@ -188,18 +179,7 @@ body {
   color: #ddd;
 }
 
-/* Дополнительные ссылки */
-.header__links {
-  /* дополнительное оформление по необходимости */
-}
-
-.header__links-list {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-}
-
-/* Верхний баннер или иной внешний блок */
+/* Внешний верхний блок */
 .top-banner {
   background-color: #555;
   padding: 20px;
